@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+packager/dist
+packager/release
+wallet
+IRI
