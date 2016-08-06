@@ -4,9 +4,7 @@ This packager will compile the app into executables for Linux, MacOS and Windows
 
 ## Prerequisites
 
-1. Download [NodeJS](https://nodejs.org/en/download/): 
-
-[NodeJS](https://nodejs.org/en/download/)
+1. Download [NodeJS](https://nodejs.org/en/download/)
 
 2. Install [Electron](http://electron.atom.io):
 
@@ -44,6 +42,8 @@ Electron Builder is used behind the scenes. Read their [instructions](https://gi
   git clone https://github.com/iotaledger/wallet
   git clone https://github.com/iotaledger/iri
   ```
+
+  Note: iri project does not exist yet -- make an IRI directory manually and place IRI.jar in it.
 
 4. Install components
 
