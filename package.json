@@ -10,10 +10,10 @@
   },
   "build": {
     "appId": "com.iotatoken.wallet",
-    "app-category-type": "public.app-category.developer-tools",
+    "category": "public.app-category.developer-tools",
     "extraResources": [
       "IRI/**/*",
-      "ui/**/*"
+      "wallet/ui/**/*"
     ],
     "extend-info": "mac-info.plist",
     "dmg": {
