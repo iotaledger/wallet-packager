@@ -5,7 +5,7 @@
     "output": "packager/dist"
   },
   "devDependencies": {
-    "electron-builder": "^7.5.0",
+    "electron-builder": "^5.18.0",
     "electron-prebuilt": "^1.4.0"
   },
   "build": {
