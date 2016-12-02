@@ -22,6 +22,8 @@ This packager will compile the app into executables for Linux, MacOS and Windows
 
 Electron Builder is used behind the scenes. Read their [instructions](https://github.com/electron-userland/electron-builder/wiki/Multi-Platform-Build) on how to set up your system.
 
+5. Install [Docker](https://www.docker.com)
+
 ## Instructions
 
 1. Clone repository:
@@ -64,3 +66,5 @@ Electron Builder is used behind the scenes. Read their [instructions](https://gi
   npm run dist:mac
   npm run dist:lin
   ```
+
+  Note: snap only builds on Linux for now, if you're building on another system, remove it from package.json.

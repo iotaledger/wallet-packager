@@ -13,7 +13,7 @@
     "appId": "com.iotatoken.wallet",
     "category": "public.app-category.developer-tools",
     "extraResources": [
-      "IRI/**/*",
+      "iri/**/*",
       "wallet/ui/**/*"
     ],
     "extend-info": "mac-info.plist",
@@ -47,7 +47,8 @@
         "AppImage",
         "deb",
         "rpm",
-        "tar.gz"
+        "tar.gz",
+        "snap"
       ],
       "packageUrl": "https://www.iotatoken.com/"
     }
