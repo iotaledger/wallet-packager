@@ -5,10 +5,11 @@
     "output": "packager/dist"
   },
   "devDependencies": {
-    "electron-builder": "^5.18.0",
-    "electron-prebuilt": "^1.4.0"
+    "electron": "^1.4.10",
+    "electron-builder": "^10.4.1"
   },
   "build": {
+    "publish": ["github"],
     "appId": "com.iotatoken.wallet",
     "category": "public.app-category.developer-tools",
     "extraResources": [
@@ -16,8 +17,14 @@
       "wallet/ui/**/*"
     ],
     "extend-info": "mac-info.plist",
+    "protocols": [
+      {
+        "name": "IOTA URL Scheme",
+        "schemes": ["iota"]
+      }
+    ],
     "dmg": {
-      "icon-size": 125,
+      "iconSize": 125,
       "contents": [
         {
           "x": 235,
@@ -50,22 +57,9 @@
     "start": "electron ./wallet --enable-logging --dev",
     "dev": "export NODE_ENV=development || set NODE_ENV=development && npm run start",
     "predist": "rm -rf packager/dist/*",
-    "dist": "export CSC_IDENTITY_AUTO_DISCOVERY=false && build --win --mac --linux --x64 --ia32",
-    "dist:lin": "build --linux --x64 --ia32",
-    "dist:mac": "export CSC_IDENTITY_AUTO_DISCOVERY=false && build --mac --x64",
-    "dist:win": "build --win --x64 --ia32",
-    "dist:win64": "build --win --x64",
-    "dist:win32": "build --win --ia32",
-    "prerelease:mac": "mkdirp packager/release/mac",
-    "release:mac": "cp -rv packager/dist/mac/*.{dmg,zip} packager/release/mac && PACKAGE_VERSION=$(cat wallet/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && printf $PACKAGE_VERSION >> ./packager/release/mac/VERSION",
-    "prerelease:win32": "mkdirp packager/release/win32",
-    "release:win32": "cp -v packager/dist/win-ia32/{RELEASES,*.nupkg,*.exe} packager/release/win32",
-    "prerelease:win64": "mkdirp packager/release/win64",
-    "release:win64": "cp -v packager/dist/win/{RELEASES,*.nupkg,*.exe} packager/release/win64",
-    "prerelease:lin": "mkdirp packager/release/lin/",
-    "release:lin": "cp -v packager/dist/*.{deb,rpm,tar.gz,sh} packager/release/lin",
-    "prerelease": "rm -rf packager/release/*",
-    "release": "npm run release:mac && npm run release:win32 && npm run release:win64 && npm run release:lin",
-    "all": "npm run dist && npm run release"
+    "dist": "export CSC_IDENTITY_AUTO_DISCOVERY=false && build --win --mac --linux --x64 --ia32 --publish onTagOrDraft",
+    "dist:lin": "build --linux --x64 --ia32 --publish onTagOrDraft",
+    "dist:mac": "export CSC_IDENTITY_AUTO_DISCOVERY=false && build --mac --x64 --publish onTagOrDraft",
+    "dist:win": "build --win --x64 --ia32 --publish onTagOrDraft"
   }
 }
